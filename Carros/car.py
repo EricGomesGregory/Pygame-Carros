@@ -9,7 +9,9 @@ class Car (object):
         self.fliped = False
         self.flip_cout = 0
 
-    def update(self, screen : pygame.Surface, speed: int, step: int):
+    def update(self, screen : pygame.Surface, speed: float, step: int):
+        self.speed = speed
+        
         if self.flip_cout == 3:
             return
 
@@ -30,7 +32,7 @@ class Car (object):
                 self.flip_cout += 1
 
         self.pos = (self.x, self.y)
-        print("Car: {} {}".format(self.pos, self.fliped))
+        print("Car: {} speed: {}".format(self.pos, self.speed))
 
     def draw(self, screen : pygame.Surface):
         if self.fliped:
