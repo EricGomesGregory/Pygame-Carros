@@ -13,7 +13,10 @@ car_img = pygame.image.load("Carros\\assets\\ferrari1.png")
 
 car = Car(50, 50, car_img)
 car_h_step = 125
-car_speed = 0.5
+car_speed = 0.0
+car_max_speed = 2.0
+car_min_speed = 0.0
+car_speed_change = 0.25
 
 playing = True
 
@@ -27,11 +30,12 @@ while playing:
             playing = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
-                car_speed = max(min(car_speed + 0.25, 2), 0.0)
+                car_speed = max(min(car_speed + car_speed_change, car_max_speed), car_min_speed)
             if event.key == pygame.K_DOWN:
-                car_speed = max(min(car_speed - 0.25, 2), 0.0)
+                car_speed = max(min(car_speed - car_speed_change, car_max_speed), car_min_speed)
 
     if car.flip_cout == 3:
+        # SHOW END GAME SCREEN
         pygame.time.delay(1000)
         playing = False
 

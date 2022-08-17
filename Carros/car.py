@@ -32,7 +32,7 @@ class Car (object):
                 self.flip_cout += 1
 
         self.pos = (self.x, self.y)
-        print("Car: {} speed: {}".format(self.pos, self.speed))
+        #print("Car: {} speed: {}".format(self.pos, self.speed))
 
     def draw(self, screen : pygame.Surface):
         if self.fliped:
