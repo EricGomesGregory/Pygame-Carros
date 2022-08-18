@@ -8,7 +8,8 @@ width, height = 850, 500
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Car Game")
 
-my_font = pygame.font.SysFont(“arial”,80,bold=True,italic=False)
+font_size = 80
+my_font = pygame.font.SysFont("arial", font_size, bold=True,italic=False)
 endgame_text = my_font.render("GAME OVER",True,(255,255,255),(0,0,0))
 background = pygame.image.load("Carros\\assets\screen.png")
 car_img = pygame.image.load("Carros\\assets\\ferrari1.png")
@@ -37,13 +38,14 @@ while playing:
                 car_speed = max(min(car_speed - car_speed_change, car_max_speed), car_min_speed)
 
     if car.flip_cout == 3:
-        # SHOW END GAME SCREEN
-        pygame.time.delay(1000)
+        screen.fill('black')
+        x = int(width/2 - font_size * 3)
+        y = int(height/2 - font_size / 2)
+        screen.blit(endgame_text,(x,y))
+        pygame.display.update()
+        pygame.time.delay(3000)
         playing = False
 
     pygame.display.update()
-screen.blit(endgame_text, (270,210))
-pygame.display.update()
-pygame.time.delay(3000)
 
 pygame.quit()
