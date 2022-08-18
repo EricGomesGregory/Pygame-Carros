@@ -8,6 +8,8 @@ width, height = 850, 500
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Car Game")
 
+my_font = pygame.font.SysFont(“arial”,80,bold=True,italic=False)
+endgame_text = my_font.render("GAME OVER",True,(255,255,255),(0,0,0))
 background = pygame.image.load("Carros\\assets\screen.png")
 car_img = pygame.image.load("Carros\\assets\\ferrari1.png")
 
@@ -40,5 +42,8 @@ while playing:
         playing = False
 
     pygame.display.update()
+screen.blit(endgame_text, (270,210))
+pygame.display.update()
+pygame.time.delay(3000)
 
 pygame.quit()
